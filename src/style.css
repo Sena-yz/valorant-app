@@ -1,0 +1,322 @@
+
+/* =========================
+   BASE THEME SYSTEM
+========================= */
+
+:root {
+  --text: #9ca3af;
+  --bg: #0f1923;
+}
+
+/* DARK MODE (default) */
+body.dark {
+  background: #0f1923;
+  color: white;
+}
+
+/* LIGHT MODE */
+body.light {
+  background: #f5f5f5;
+  color: #111;
+}
+
+/* algemene tekst */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: 0.3s ease;
+}
+
+h1, h2, p {
+  color: inherit;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+h1 {
+  text-align: center;
+  padding: 20px;
+}
+
+#search, #roleFilter, #showFavs {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+#agents {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* =========================
+   CARD UI
+========================= */
+
+.card {
+  background: #1f2a35;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* light mode cards */
+body.light .card {
+  background: white;
+  color: black;
+}
+
+/* =========================
+   FAVORITES BUTTON
+========================= */
+
+.fav-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.fav-btn:hover {
+  transform: scale(1.2);
+}
+
+/* =========================
+   LOADING
+========================= */
+
+#loading {
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+}
+
+/* =========================
+   THEME TOGGLE SWITCH
+========================= */
+
+.theme-switch {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+#themeToggle {
+  display: none;
+}
+
+.switch {
+  width: 70px;
+  height: 32px;
+  background: #1f2a35;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* bolletje */
+.switch::before {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: white;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+/* beweging */
+#themeToggle:checked + .switch::before {
+  transform: translateX(38px);
+}
+
+/* light mode switch background */
+#themeToggle:checked + .switch {
+  background: #f5f5f5;
+}
+
+/* icons */
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.moon {
+  left: 8px;
+}
+
+.sun {
+  right: 8px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: none; /* BELANGRIJK */
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0,0,0,0.7);
+  z-index: 9999;
+}
+
+.modal.show {
+  display: flex; /* dit maakt hem zichtbaar */
+}
+
+.modal-content {
+  background: #1f2a35;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  pointer-events: auto;
+}
+.ability {
+  background: #2a3744;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+body.light .ability {
+  background: #eee;
+}
+.ability {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: #2a3744;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+
+  font-size: 13px;
+  padding: 8px;
+}
+
+.ability-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.ability-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.ability-text {
+  margin-top: 8px;
+}
+.ability:hover {
+  transform: scale(1.02);
+  transition: 0.2s;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ultimate highlight */
+.ultimate {
+  border: 2px solid gold;
+  box-shadow: 0 0 10px gold;
+}
+
+body.light .ability {
+  background: #eee;
+}
+.modal {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background: #1f2a35;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+
+  width: 90%;
+  max-width: 500px;
+
+  max-height: 80vh;        /* BELANGRIJK */
+  overflow-y: auto;        /* SCROLL */
+
+  margin: 20px;
+
+  background: rgba(31, 42, 53, 0.85);
+  backdrop-filter: blur(10px);
+}
+.modal-content h2 {
+  font-size: 22px;
+  position: sticky;
+  top: 0;
+  background: inherit;
+  padding: 10px 0;
+  margin: 0;
+  z-index: 2;
+}
+
+.modal-content p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+}
+#closeModal {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 26px;
+  cursor: pointer;
+}
