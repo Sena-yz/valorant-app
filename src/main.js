@@ -1,3 +1,4 @@
+import './style.css'
 window.addEventListener("DOMContentLoaded", () => {
 document.body.classList.add("dark");
 
@@ -22,9 +23,7 @@ const roleFilter = document.querySelector("#roleFilter");
 let allAgents = [];
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-/* =========================
-   POPUP (MODAL)
-========================= */
+/*  POPUP (MODAL) */
 const modalAbilities = document.querySelector("#modalAbilities");
 const modal = document.querySelector("#modal");
 const closeModal = document.querySelector("#closeModal");
@@ -72,12 +71,12 @@ const openModal = (agent) => {
   modal.classList.add("show");
 };
 
-/* ❗ BELANGRIJK: sluit knop */
+/* sluit knop */
 closeModal.onclick = () => {
   modal.classList.remove("show");
 };
 
-/* ❗ klik BUITEN popup = sluiten */
+/* klik BUITEN popup = sluiten */
 modal.onclick = (e) => {
   if (e.target === modal) {
     modal.classList.remove("show");
@@ -90,9 +89,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-/* =========================
-   API
-========================= */
+/*  API */
 
 const getAgents = async () => {
   loading.style.display = "block";
@@ -107,9 +104,7 @@ const getAgents = async () => {
   loading.style.display = "none";
 };
 
-/* =========================
-   FAVORITES
-========================= */
+/*  FAVORITES */
 
 const saveFavorites = () => {
   localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -132,9 +127,7 @@ const isFavorite = (agent) => {
   return favorites.some(f => f.uuid === agent.uuid);
 };
 
-/* =========================
-   RENDER AGENTS
-========================= */
+/*  RENDER AGENTS */
 
 const renderAgents = (agents) => {
   let html = "";
@@ -180,9 +173,7 @@ const renderAgents = (agents) => {
 });
 };
 
-/* =========================
-   FILTERS
-========================= */
+/*  FILTERS */
 
 const applyFilters = () => {
   let filtered = allAgents;
