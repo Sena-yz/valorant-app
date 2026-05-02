@@ -119,3 +119,38 @@ Tijdens dit project werd ChatGPT gebruikt voor:
 
 Deze applicatie toont hoe een moderne webapp gebouwd wordt met JavaScript, API’s en Vite.
 
+##  Technische implementatie (waar in de code)
+
+### DOM manipulatie
+
+* Elementen selecteren → `main.js` (querySelector)
+* Elementen aanpassen → `renderAgents()`
+* Events → click, input, change events
+
+### Modern JavaScript
+
+* Arrow functions → `=>`
+* Template literals → HTML rendering
+* Array methods:
+
+  * filter → search & filter
+  * sort → A-Z / Z-A
+  * find / some → favorites
+
+### API & Data
+
+* Fetch → `getAgents()`
+* Async/Await → API ophalen
+* JSON → data verwerken
+
+### Opslag
+
+* LocalStorage:
+
+  * favorieten
+  * username
+
+### Extra
+
+* Modal → `openModal()`
+* Theme switch → dark/light mode
