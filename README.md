@@ -119,7 +119,3 @@ Tijdens dit project werd ChatGPT gebruikt voor:
 
 Deze applicatie toont hoe een moderne webapp gebouwd wordt met JavaScript, API’s en Vite.
 
-
-# TEST
-
-werkt dit?
